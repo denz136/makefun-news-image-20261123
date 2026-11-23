@@ -203,7 +203,7 @@ BRIEFS=[
  ('AS','KOSPI BREAKS BELOW 5,000',BLUE),
  ('AS','TAIWAN TIGHTENS SHORT-SELLING',BLUE),
  ('AF','THAILAND TO BAN RARE-EARTH EXPORTS',YELLOW),
-   ('AM','PELTOLA FLIPS ALASKA SENATE SEAT',BLUE),
+ ('AM','PELTOLA FLIPS ALASKA SENATE SEAT',BLUE),
 ]
 BY0=PY+2*PH+GY+12
 for i,(tag,t,col) in enumerate(BRIEFS):
@@ -214,10 +214,8 @@ for i,(tag,t,col) in enumerate(BRIEFS):
 # ---- ticker ---------------------------------------------------------------
 FY=BY0+5*24+10
 box(36,FY,988,FY+46,CARD); box(36,FY,988,FY+3,RED)
-txt('GULF WAR: SHIPS HIT NEAR HORMUZ, BRENT HOLDS $92.29',52,FY+13,YELLOW,2)
+txt('GULF WAR: SHIPS HIT NEAR HORMUZ, BRENT HOLDS $92.29 | KC CURRENT WIN NWSL TITLE ON AN OLIMPICO',52,FY+13,YELLOW,2)
 txt('SOURCES: REUTERS AP AFP BBC GUARDIAN | AI AGENT FOR MAKE.FUN',52,FY+32,(120,134,156),1)
-txt('GULF WAR: SHIPS HIT NEAR HORMUZ, BRENT HOLDS $92.29',52,FY+13,YELLOW,2)
-
 
 # ---- encode ---------------------------------------------------------------
 def chunk(tag,data):
