@@ -107,7 +107,7 @@ txt('WORLD NEWS',44,22,INK,7)
 txt('MONDAY 23 NOVEMBER 2026',46,78,(150,186,232),4)
 
 # ---- lead panels ----------------------------------------------------------
-PX,PY,PW,PH,GX,GY=36,140,464,298,24,14
+PX,PY,PW,PH,GX,GY=36,140,464,340,24,14
 LEADS=[
  ('MIDDLE EAST',RED,"GULF WAR ESCALATES",
   ["HOUTHIS CLAIM HIT ON SAUDI RABIGH","REFINERY; IRGC STRIKES US RADARS",
@@ -138,93 +138,86 @@ for i,(kick,col,head,body) in enumerate(LEADS):
         txt(ln,x+18,hy,DIM,2); hy+=19
     arts.append((i,x,y))
 
-AZ=170
+AZ=196
 
 # P1 gulf map
 i,x,y=arts[0]; CLIP=(x+4,y+AZ,x+PW-4,y+PH-4)
-gx,gy=x+250,y+AZ
-box(gx,gy,gx+190,gy+120,(26,36,54))
-for k in range(46): box(gx+16+k,gy+22+k,gx+24+k,gy+100-k,WATER)
-txt('GULF',gx+26,gy+52,(150,190,240),2)
-box(gx+120,gy+10,gx+184,gy+112,(42,50,42)); txt('IRAN',gx+128,gy+48,(168,180,150),2)
-blob(gx+128,gy+24,5,RED); txt('QESHM',gx+136,gy+18,RED,1)
-blob(gx+40,gy+32,5,RED); txt('BAHRAIN',gx-6,gy+42,RED,1)
-blob(gx+30,gy+82,6,ORANGE); txt('RABIGH',gx-8,gy+92,ORANGE,1)
-vec(gx+112,gy+28,gx+46,gy+34,RED); vec(gx+106,gy+36,gx+42,gy+80,RED)
-txt('REFINERY + RADARS HIT',gx+22,gy+102,YELLOW,1)
+gx,gy=x+222,y+AZ
+box(gx,gy,gx+232,gy+150,(26,36,54))
+for k in range(58): box(gx+18+k,gy+26+k,gx+28+k,gy+126-k,WATER)
+txt('GULF',gx+28,gy+66,(150,190,240),2)
+box(gx+146,gy+12,gx+224,gy+142,(42,50,42)); txt('IRAN',gx+156,gy+62,(168,180,150),2)
+blob(gx+156,gy+30,7,RED); txt('QESHM',gx+166,gy+22,RED,1)
+blob(gx+48,gy+40,7,RED); txt('BAHRAIN',gx-6,gy+52,RED,1)
+blob(gx+36,gy+102,8,ORANGE); txt('RABIGH',gx-8,gy+114,ORANGE,1)
+vec(gx+138,gy+34,gx+56,gy+42,RED,3); vec(gx+130,gy+44,gx+50,gy+100,RED,3)
+txt('REFINERY + RADARS HIT',gx+26,gy+130,YELLOW,1)
 
 # P2 collapsed block
 i,x,y=arts[1]; CLIP=(x+4,y+AZ,x+PW-4,y+PH-4)
 bx,by=x+20,y+AZ+2
-box(bx,by+10,bx+176,by+104,(62,70,86))
-for r in range(4):
+box(bx,by+10,bx+176,by+134,(62,70,86))
+for r in range(5):
     box(bx+8,by+20+r*20,bx+168,by+26+r*20,(32,40,56))
     for wq in range(0,150,24): box(bx+14+wq,by+20+r*20,bx+30+wq,by+26+r*20,YELLOW)
 for k in range(64):
-    box(bx+186+k,by+104-int(k*0.85),bx+424,by+104,blend((100,88,74),(38,34,30),k/64))
-box(bx+186,by+56,bx+424,by+104,(52,46,42))
+    box(bx+186+k,by+134-int(k*0.85),bx+424,by+134,blend((100,88,74),(38,34,30),k/64))
+box(bx+186,by+86,bx+424,by+134,(52,46,42))
 for rx in (bx+216,bx+256,bx+306):
-    box(rx,by+84,rx+10,by+100,ORANGE); blob(rx+5,by+80,6,ORANGE)
+    box(rx,by+114,rx+10,by+130,ORANGE); blob(rx+5,by+110,7,ORANGE)
 txt('DYMER, KYIV REGION',bx+228,by+2,(238,132,98),2)
-txt('RESCUE ONGOING',bx+240,by+106,DIM,1)
+txt('RESCUE ONGOING',bx+240,by+138,DIM,1)
 
 # P3 markets chart
 i,x,y=arts[2]; CLIP=(x+4,y+AZ,x+PW-4,y+PH-4)
 cx,cy=x+28,y+AZ+6
-box(cx,cy,cx+408,cy+116,(22,28,42))
-pts=[(0,18),(56,32),(112,28),(168,50),(224,56),(280,86),(336,102),(404,98)]
+box(cx,cy,cx+408,cy+140,(22,28,42))
+pts=[(0,20),(56,38),(112,32),(168,60),(224,68),(280,104),(336,124),(404,118)]
 for k in range(len(pts)-1):
     seg(cx+pts[k][0],cy+pts[k][1],cx+pts[k+1][0],cy+pts[k+1][1],RED,3)
-txt('KOSPI -5 PCT',cx+12,cy+6,INK,2)
+txt('KOSPI -5 PCT',cx+12,cy+6,INK,3)
 txt('STABILISATION FUND ON',cx+12,cy+94,BLUE,2)
-txt('NASDAQ -10 PCT WK',cx+252,cy+70,ORANGE,1)
+txt('NASDAQ -10 PCT WK',cx+268,cy+62,ORANGE,2)
 
 # P4 COP31
 i,x,y=arts[3]; CLIP=(x+4,y+AZ,x+PW-4,y+PH-4)
-gx,gy=x+270,y+AZ+62
-ring(gx,gy,60,GREEN,3); ring(gx,gy,40,(46,92,72),2)
-box(gx-28,gy-32,gx-4,gy-16,(52,110,84)); box(gx+2,gy-38,gx+28,gy-24,(52,110,84))
-box(gx-16,gy+6,gx+12,gy+24,(52,110,84)); box(gx+16,gy+14,gx+32,gy+32,(52,110,84))
-txt('COP31',gx-tw('COP31',2)//2,gy-8,GREEN,2)
-txt('ANTALYA',gx-tw('ANTALYA',1)//2,gy+20,DIM,1)
-seg(gx-84,gy-46,gx-24,gy+14,RED,4); seg(gx-16,gy+22,gx-70,gy+54,RED,4)
-txt('NO DEAL',x+86,gy-34,RED,3)
-txt('FOSSIL FUEL WORDING DEADLOCKED',x+62,gy+14,DIM,2)
-txt('LONGEST COP ON RECORD',x+84,gy+38,(112,128,152),1)
+gx,gy=x+330,y+AZ+68
+ring(gx,gy,54,GREEN,4); ring(gx,gy,34,(46,92,72),2)
+box(gx-20,gy-26,gx-2,gy-12,(52,110,84)); box(gx+2,gy-30,gx+22,gy-18,(52,110,84))
+box(gx-12,gy+4,gx+8,gy+18,(52,110,84)); box(gx+12,gy+10,gx+24,gy+24,(52,110,84))
+txt('COP31',x+44,gy+10,GREEN,3)
+
+seg(gx-60,gy-40,gx-20,gy-6,RED,4); seg(gx-16,gy+2,gx-40,gy+28,RED,4)
+txt('NO DEAL',x+48,gy-46,RED,4)
+txt('FOSSIL FUEL DEADLOCKED',x+36,gy+58,DIM,2)
+txt('LONGEST COP ON RECORD',x+40,gy+74,(112,128,152),1)
 
 # ---- briefs ---------------------------------------------------------------
 CLIP=None
 BRIEFS=[
- ('ME','IRGC DOWNS US PREDATOR OVER HORMUZ',RED),
- ('ME','UKMTO FLAGS TANKER INCIDENT, GULF OF OMAN',RED),
- ('ME','US CARRIER GROUP HOLDS OFF OMAN',RED),
- ('ME','EGYPT: SUEZ LOST $20BN TO THE WAR',RED),
- ('UA','MERKURY CORVETTE SUNK OFF BENGHAZI',ORANGE),
- ('UA','SLOVIANSK SHELLED: TWO DEAD',ORANGE),
- ('AS','US AI-CHIP CURBS HIT CHINA TECH STOCKS',BLUE),
- ('AS','KOSPI BREAKS BELOW 5,000 ON THE AI ROUT',BLUE),
- ('AS','TAIWAN TIGHTENS SHORT-SELLING RULES',BLUE),
- ('AF','THAILAND TO BAN RARE-EARTH CHEMICAL EXPORTS',YELLOW),
- ('AF','MYANMAR RARE-EARTH TALKS SET FOR 24-26 NOV',YELLOW),
- ('EU','FLASH PMIS DUE ACROSS EUROPE TODAY',GREEN),
- ('EU','DOLLAR NEAR A 19-MONTH HIGH',GREEN),
- ('AM','US LOSES MEASLES ELIMINATION STATUS',BLUE),
- ('AM','PELTOLA FLIPS ALASKA SENATE SEAT',BLUE),
+ ('ME','IRGC DOWNS US PREDATOR, HORMUZ',RED),
+ ('ME','UKMTO FLAGS TANKER INCIDENT, OMAN',RED),
+ ('ME','EGYPT: SUEZ LOST $20BN TO WAR',RED),
+ ('UA','CORVETTE SUNK OFF BENGHAZI',ORANGE),
+ ('AS','AI-CHIP CURBS HIT CHINA STOCKS',BLUE),
+ ('AS','KOSPI BREAKS BELOW 5,000',BLUE),
+ ('AS','TAIWAN TIGHTENS SHORT-SELLING',BLUE),
+ ('AF','THAILAND TO BAN RARE-EARTH EXPORTS',YELLOW),
+   ('AM','PELTOLA FLIPS ALASKA SENATE SEAT',BLUE),
 ]
 BY0=PY+2*PH+GY+12
 for i,(tag,t,col) in enumerate(BRIEFS):
-    bxx=36+(i%2)*472; byy=BY0+(i//2)*22
+    bxx=36+(i%2)*472; byy=BY0+(i//2)*24
     box(bxx,byy,bxx+448,byy+1,(44,56,76))
     txt(tag,bxx+6,byy+7,col,2); txt(t,bxx+42,byy+7,DIM,2)
 
 # ---- ticker ---------------------------------------------------------------
-FY=BY0+6*22+8
-box(36,FY,988,FY+38,CARD); box(36,FY,988,FY+3,RED)
+FY=BY0+5*24+10
+box(36,FY,988,FY+46,CARD); box(36,FY,988,FY+3,RED)
 txt('GULF WAR: SHIPS HIT NEAR HORMUZ, BRENT HOLDS $92.29',52,FY+13,YELLOW,2)
-FZ=FY+48
-box(36,FZ,988,FZ+38,CARD); box(36,FZ,988,FZ+3,ORANGE)
-txt('KC CURRENT WIN FIRST NWSL TITLE 2-1 ON AN OLIMPICO',56,FZ+13,ORANGE,2)
-txt('SOURCES: REUTERS AP AFP BBC GUARDIAN | AI AGENT FOR MAKE.FUN',36,FZ+48,(100,114,136),1)
+txt('SOURCES: REUTERS AP AFP BBC GUARDIAN | AI AGENT FOR MAKE.FUN',52,FY+32,(120,134,156),1)
+txt('GULF WAR: SHIPS HIT NEAR HORMUZ, BRENT HOLDS $92.29',52,FY+13,YELLOW,2)
+
 
 # ---- encode ---------------------------------------------------------------
 def chunk(tag,data):
